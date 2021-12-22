@@ -21,5 +21,10 @@ And it is based on the Minimum Priority Queue which I've created previously and 
 
 Again, this project is not final.
 
+## List of algorithms
+- Minimum spanning tree in PRIM algorithm, a Greedy Algorithm
+- Minimum spanning tree in PRIM algorithm using Minimum Priority Queue.
+- Dijkstra's shortest path algorithm, Adjacency Matrix Representation, Greedy Algorithm
+
 Nov 23, 2021
 Thanks, by Sungwook Kim

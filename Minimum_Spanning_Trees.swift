@@ -24,9 +24,11 @@ import Foundation
 /// ・Approximation algorithms for NP-hard problems (e.g., TSP, Steiner tree).
 /// ・Network design (communication, electrical, hydraulic, computer, road).
 
-/// time complexity O(V^2)
+/// Minimum spanning tree in PRIM algorithm, a greedy algorithm
 /// key holds the minimum weight per vertex.
-public func PRIMs_algorithm_of_MST_rigorously(_ G: [[Int]], verbose: Bool = false) -> [Int] {
+///
+/// time complexity O(V^2)
+public func PRIMs_algorithm_of_MST__greedy_algorithm(_ G: [[Int]], verbose: Bool = false) -> [Int] {
     guard G.count >= 2 else {
         return .init()
     }
@@ -87,9 +89,13 @@ fileprivate struct KeyCentric_IKeyPair: Comparable & Equatable {
     }
 }
 
+/// Minimum spanning tree in PRIM algorithm using Minimum Priority Queue.
+///
 /// There is a catch due to the limit of implementation, I had to employ `VertexKeyPair`.
 /// Shall it be a better solution in performance?
 /// And this is dependent upon `MinPriorityQueue`
+///
+/// time complexity O(ElogV), faster than the rigorous method as V gets larger.
 public func PRIMs_algorithm_of_MST_by_MinPriorityQueue(_ G: [[Int]], verbose: Bool = false) -> [Int] {
     guard G.count >= 2 else {
         return .init()
@@ -149,7 +155,11 @@ public func PRIMs_algorithm_of_MST_by_MinPriorityQueue(_ G: [[Int]], verbose: Bo
     return MST
 }
 
-public func Dijkstras_algorithm_of_shortest_path_rigorously(_ G: [[Int]], source_index: Int, verbose: Bool = false) -> (path: [Int], dist: [Int]) {
+
+/// Dijkstra's shortest path algorithm, Adjacency Matrix Representation, Greedy Algorithm
+///
+/// time complexity O(V^2)
+public func Dijkstras_algorithm_of_shortest_path_matrix__greedy_algorithm(_ G: [[Int]], source_index: Int, verbose: Bool = false) -> (path: [Int], dist: [Int]) {
     guard G.count >= 2 else {
         return (.init(), .init())
     }
@@ -325,7 +335,7 @@ func test__PRIM_MST(verbose: Bool = false) {
         print("Time Complexity O(VxV):")
         var start_time: Date, end_time: Date
         start_time = Date()
-        var mst = PRIMs_algorithm_of_MST_rigorously(G, verbose: verbose)
+        var mst = PRIMs_algorithm_of_MST__greedy_algorithm(G, verbose: verbose)
         end_time = Date()
         let diff_of_VxV = end_time.timeIntervalSinceReferenceDate - start_time.timeIntervalSinceReferenceDate
         print("For G =")
@@ -362,7 +372,7 @@ func test__PRIM_MST(verbose: Bool = false) {
         
         // MARK: - Dijkstra's shortest path
         print("")
-        let path_and_dist = Dijkstras_algorithm_of_shortest_path_rigorously(G, source_index: 0, verbose: true)
+        let path_and_dist = Dijkstras_algorithm_of_shortest_path_matrix__greedy_algorithm(G, source_index: 0, verbose: true)
         print("Dijkstra's shortest path:")
         path_and_dist.path.enumerated().forEach {
             print("\($0.offset) -- \($0.element)")
