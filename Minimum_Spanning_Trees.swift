@@ -7,6 +7,10 @@
 // Copyright (c) 2021 by Sungwook Kim
 // I created this in Creative Commons (CC BY-NC 4.0).
 // https://creativecommons.org/licenses/by-nc/4.0/
+//
+// ** ATTRIBUTION IS REQUIRED **
+// Please always give credit to the creator and cite in some way.
+//
 // However, anyone who has donated can use it as OPEN SOURCE with ATTRIBUTION ASSURANCE LICENSE.
 
 import Foundation
